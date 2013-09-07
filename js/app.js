@@ -35,9 +35,23 @@ todoApp.factory('todoAppStorage', function () {
     };
 });
 
-function ItemsController($scope, todoAppStorage) {
+todoApp.factory('selectedStorage', function () {
+    var STORAGE_ID = 'godo-selected';
+
+    return {
+        get: function () {
+            return JSON.parse(localStorage.getItem(STORAGE_ID)) || {};
+        },
+
+        put: function (selected) {
+            localStorage.setItem(STORAGE_ID, JSON.stringify(selected));
+        }
+    }
+});
+
+function ItemsController($scope, todoAppStorage, selectedStorage) {
     var items = $scope.items = todoAppStorage.get();
-    $scope.search = {};
+    var search = $scope.search = selectedStorage.get();
     $scope.editingItem = null;
 
     $scope.$watch('items', function (newValue, oldValue) {
@@ -49,8 +63,13 @@ function ItemsController($scope, todoAppStorage) {
         }
     }, true);
 
+    $scope.$watch('search', function (newValue, oldValue) {
+        if (newValue !== oldValue) {
+            selectedStorage.put(search);
+        }
+    }, true);
+
     $scope.itemCount = function (complete) {
-        console.log(complete);
         if (typeof (complete) === 'undefined' || complete === null) {
             return $scope.items.length;
         }
@@ -58,7 +77,6 @@ function ItemsController($scope, todoAppStorage) {
             var count = 0;
             angular.forEach($scope.items, function (item) {
                 if (item.complete == complete) {
-                    console.log(item.complete + " equals " + complete);
                     count++;
                 }
             });
