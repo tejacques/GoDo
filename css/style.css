@@ -162,11 +162,7 @@ input {
 }
 
 .border-gray {
-    border-color: #ddd;
-}
-
-.border-darkgray {
-    border-color: #bbb;
+    border-color: #ccc;
 }
 
 .no-border {
@@ -182,7 +178,7 @@ input {
 /* Box Utilities */
 
 .white-shadow {
-    box-shadow: 0 1px 0 0 #fff;
+    box-shadow: 0 1px 0 0 #f7f7f7;
 }
 
 /* Button details */
