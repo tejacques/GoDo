@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>ToDoList</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+        <script type="text/javascript" src="js/sortable.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <script type="text/javascript" src="js/app.js"></script>
+    </head>
+    <body>
+        <div ng-app="todo" class="app-container border border-gray">
+            <div class="header gradient">
+                <div class="logo"></div>
+            </div>
+            <div ng-controller="ItemsController" class="">
+
+                <ul class="filter-container thickborder border-darkgray rounded-corners white-shadow gradient-button">
+                    <li ng-class="{ selected : search.complete == undefined }">
+                        <button class="status" ng-click="complete(search)"><span class="status-text">All </span><span class="status-count">({{items.length}})</span></button>
+                    </li>
+                    <li class="vertical-divider"></li>
+                    <li ng-class="{ selected : search.complete == 'false' }">
+                        <button class="status" ng-click="complete(search, 'false')"><span class="status-text">Active </span><span class="status-count">({{activeCount}})</span></button>
+                    </li>
+                    <li class="vertical-divider"></li>
+                    <li ng-class="{ selected : search.complete == 'true' }">
+                        <button class="status" ng-click="complete(search, 'true')"><span class="status-text">Complete </span><span class="status-count">({{completedCount}})</span></button>
+                    </li>
+                    
+                </ul>
+
+                <div class="horizontal-divider">
+
+                </div>
+
+                <div class="form-container">
+                    <form ng-submit="addItem(newItem)">
+                        <input placeholder="What needs to be done?" class="item-input thickborder border-darkgray rounded-corners full-width white-shadow" type="text" ng-model="newItem.description" value="What needs to be done?"/>
+                    </form>
+                </div>
+                
+                <div class="items">
+                    <div ng-model="items" ui-sortable="">
+                        <div class="item-container thickborder border-darkgray rounded-corners" ng-repeat="item in items | filter:search">
+                            <div class="button-container float-left">
+                                <button class="check check-unfilled" ng-show="item.complete == false" ng-click="complete(item, true)"><div class="checkmark"></div></button>
+                                <button class="check check-filled" ng-show="item.complete != false" ng-click="complete(item, false)"><div class="checkmark"></div></button>
+                            </div>
+                            <label ng-hide="item.editing" ng-dblclick="edit(item)" class="item float-left">{{item.description}}</label>
+                            <form ng-show="item.editing" ng-submit="doneEditing(item)">
+                                <input on-blur="doneEditing(item)" give-focus="item == editingItem" class="item item-edit float-left no-border" type="text" value="{{item.description}}" ng-model="item.description" />
+                            </form>
+                            <button class="delete" ng-click="deleteItem(item)">&nbsp;</button>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

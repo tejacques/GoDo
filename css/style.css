@@ -1,0 +1,267 @@
+/* General Utility classes */
+
+.float-left {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+form {
+    margin: 0px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Containers */
+
+.app-container {
+    font-size: 1em;
+    width: 300px;
+    background: #ddd;
+    margin: auto;
+}
+
+.button-container {
+    margin-top: -10px;
+    margin-right: 10px;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+}
+
+.filter-container {
+    padding: 0px;
+    margin: 5px 10px;
+    overflow: hidden;
+    height: 39px;
+    position: relative;
+}
+
+.filter-container li {
+    padding: 0px;
+    text-align: center;
+    display: inline-block;
+    width: 31%;
+    height: 100%;
+}
+
+.form-container {
+    margin: 5px 10px;
+}
+
+.item-container {
+    margin: 5px 10px;
+    background: white;
+    height: 28px;
+    padding-top: 10px;
+    overflow: hidden;
+}
+
+/* Header */
+
+.header {
+    height: 45px;
+    padding-top: 15px;
+}
+
+/* Gradients */
+
+.gradient {
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-linear-gradient(top, #fff 0%, #ddd 100%);
+
+    /* Mozilla Firefox */ 
+    background-image: -moz-linear-gradient(top, #fff 0%, #ddd 100%);
+
+    /* Opera */ 
+    background-image: -o-linear-gradient(top, #fff 0%, #ddd 100%);
+
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #ddd));
+
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-linear-gradient(top, #fff 0%, #ddd 100%);
+
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: linear-gradient(to bottom, #fff 0%, #ddd 100%);
+}
+
+.gradient-button {
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-linear-gradient(top, #fff 0%, #ddd 70%);
+
+    /* Mozilla Firefox */ 
+    background-image: -moz-linear-gradient(top, #fff 0%, #ddd 70%);
+
+    /* Opera */ 
+    background-image: -o-linear-gradient(top, #fff 0%, #ddd 70%);
+
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(0.7, #ddd));
+
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-linear-gradient(top, #fff 0%, #ddd 70%);
+
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: linear-gradient(to bottom, #fff 0%, #ddd 70%);
+}
+
+/* Logo */
+
+.logo {
+    background: url(sprite.png) no-repeat;
+    width: 93px;
+    height: 35px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Item details*/
+
+.items {
+    min-height: 200px;
+    padding-bottom: 25px;
+}
+
+.item {
+    width: 200px;
+    height: 20px;
+}
+
+input {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.item-input {
+    height: 42px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+.item-edit {
+    height: 36px;
+    margin-top: -9px;
+    margin-left: -10px;
+    padding-left: 10px;
+    padding-top: 2px;
+}
+
+/* Border Utilities */
+
+.border {
+    border: 1px solid;
+}
+
+.thickborder {
+    border: 2px solid;
+}
+
+.border-gray {
+    border-color: #ddd;
+}
+
+.border-darkgray {
+    border-color: #bbb;
+}
+
+.no-border {
+    border: none;
+}
+
+/* Corner utility */
+
+.rounded-corners {
+    border-radius: 6px;
+}
+
+/* Box Utilities */
+
+.white-shadow {
+    box-shadow: 0 1px 0 0 #fff;
+}
+
+/* Button details */
+
+button.status {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    background: none;
+    width: 92px;
+    height: 100%;
+}
+
+ul.filter-container li:last-child button.status {
+    width: 101px;
+}
+
+.selected button {
+    background: #ddd;
+}
+
+button.delete {
+    height: 16px;
+    width: 16px;
+    float: right;
+    background: none;
+    border: none;
+    margin-right: 10px;
+}
+
+.item-container:hover .delete {
+    background:url(sprite.png) -122px 0px;
+}
+
+/* Button check details*/
+
+.checkmark {
+    background: url(sprite.png) -95px 0px;
+    height: 25px;
+    width: 25px;
+}
+button.check {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+button.check-filled {
+    background: #6fbf44;
+}
+
+button.check-unfilled {
+    background: #bbb;
+}
+
+/* Dividers */
+
+.horizontal-divider {
+    background: url(sprite.png) 0px -37px;
+    width: 300px;
+    height: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+li.vertical-divider {
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background: #ccc;
+    z-index: 5;
+}
+
+.status-text {
+    vertical-align: middle;
+}
+
+.status-count {
+    font-size: 0.625em;
+    color: #777;
+    vertical-align: middle;
+}
