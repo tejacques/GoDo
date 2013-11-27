@@ -15,7 +15,7 @@
             </div>
             <div ng-controller="ItemsController" class="">
 
-                <ul class="filter-container thickborder border-gray rounded-corners white-shadow gradient-button">
+                <ul class="filter-container border border-gray rounded-corners white-shadow gradient-button">
                     <li ng-class="{ selected : search.complete == undefined }">
                         <button class="status" ng-click="complete(search)"><span class="status-text">All </span><span class="status-count">({{items.length}})</span></button>
                     </li>
@@ -36,13 +36,13 @@
 
                 <div class="form-container">
                     <form ng-submit="addItem(newItem)">
-                        <input placeholder="What needs to be done?" class="item-input thickborder border-gray rounded-corners full-width white-shadow" type="text" ng-model="newItem.description" value="What needs to be done?"/>
+                        <input placeholder="What needs to be done?" class="item-input border border-gray rounded-corners full-width white-shadow" type="text" ng-model="newItem.description" value="What needs to be done?"/>
                     </form>
                 </div>
                 
                 <div class="items">
                     <div ng-model="items" ui-sortable="">
-                        <div class="item-container thickborder border-gray rounded-corners" ng-repeat="item in items | filter:search">
+                        <div class="item-container border border-gray rounded-corners" ng-repeat="item in items | filter:search">
                             <div class="button-container float-left">
                                 <button class="check check-unfilled" ng-show="item.complete == false" ng-click="complete(item, true)"><div class="checkmark"></div></button>
                                 <button class="check check-filled" ng-show="item.complete != false" ng-click="complete(item, false)"><div class="checkmark"></div></button>
