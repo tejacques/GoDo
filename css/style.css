@@ -1,7 +1,12 @@
+/* Get Rid of focus outline on Chrome */
+.item-input:focus, .status:focus, .check:focus {
+    outline: none;
+}
+
 /* General Utility classes */
 
 body {
-    font-family: "Helvetica Neue";
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
 }
 
 .float-left {
@@ -23,46 +28,51 @@ form {
 /* Containers */
 
 .app-container {
-    font-size: 1em;
+    font-size: 0.75em;
     width: 300px;
     background: #ddd;
-    margin: auto;
+    margin: 40px auto;
 }
 
 .button-container {
-    margin-top: -10px;
-    margin-right: 10px;
-    height: 44px;
+    top:  -1px;
+    left: -1px;
+    height: 45px;
     width: 44px;
     overflow: hidden;
+    position: absolute;
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+       -moz-border-radius-topleft: 6px;
+       -moz-border-radius-bottomleft: 6px;
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
 }
 
 .filter-container {
-    padding: 0px;
-    margin: 5px 10px;
+    margin: 5px 15px;
     overflow: hidden;
-    height: 39px;
+    height: 44px;
     position: relative;
 }
 
 .filter-container li {
-    padding: 0px;
     text-align: center;
     display: inline-block;
-    width: 31%;
+    width: 85px;
     height: 100%;
 }
 
 .form-container {
-    margin: 5px 10px;
+    margin: 5px 15px;
 }
 
 .item-container {
-    margin: 5px 10px;
+    margin: 5px 15px;
     background: white;
     height: 33px;
     padding-top: 10px;
-    overflow: hidden;
+    position: relative;
 }
 
 /* Header */
@@ -132,9 +142,10 @@ form {
 }
 
 .item {
-    width: 195px;
+    margin-left: 55px;
+    width: 185px;
     height: 20px;
-    margin-top: 3px;
+    margin-top: 6px;
 }
 
 input {
@@ -151,9 +162,8 @@ input {
 .item-edit {
     height: 41px;
     margin-top: -9px;
-    margin-left: -10px;
-    padding-left: 10px;
-    padding-top: 3px;
+    margin-left: 44px;
+    padding-left: 11px;
 }
 
 /* Border Utilities */
@@ -173,13 +183,17 @@ input {
 /* Corner utility */
 
 .rounded-corners {
-    border-radius: 7px;
+    -webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+            border-radius: 6px;
 }
 
 /* Box Utilities */
 
 .white-shadow {
-    box-shadow: 0 1px 0 0 #f7f7f7;
+    -webkit-box-shadow: 0 1px 0 #fff;
+       -moz-box-shadow: 0 1px 0 #fff;
+            box-shadow: 0 1px 0 #fff;
 }
 
 /* Button details */
@@ -189,12 +203,12 @@ button.status {
     margin: 0px;
     border: none;
     background: none;
-    width: 92px;
+    width: 90px;
     height: 100%;
 }
 
 ul.filter-container li:last-child button.status {
-    width: 101px;
+    width: 92px;
 }
 
 .selected button {
@@ -250,17 +264,17 @@ button.check-unfilled {
 li.vertical-divider {
     position: absolute;
     height: 100%;
-    width: 2px;
+    width: 1px;
     background: #ccc;
-    z-index: 5;
 }
 
 .status-text {
+    font-size: 12px;
+    font-family: inherit;
     vertical-align: middle;
 }
 
 .status-count {
     font-size: 0.625em;
     color: #818181;
-    vertical-align: middle;
 }
